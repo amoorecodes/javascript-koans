@@ -37,8 +37,8 @@ describe("About Applying What We Have Learnt", function() {
       var productsICanEat = [];
       var hasNoNuts = products.filter(pizza => pizza.containsNuts !== true);
       // var hasNoMushrooms = function(pizza) {
-      //   pizza.ingridients.some(function(ingridient) {
-      //     ingridient !== 'mushrooms';
+      //   pizza.ingredients.some(function(ingredient) {
+      //     ingredient !== 'mushrooms';
       //   });
       // }
       var hasNoMushrooms = function(option) {
@@ -46,8 +46,8 @@ describe("About Applying What We Have Learnt", function() {
       };
       productsICanEat = hasNoNuts.filter(pizza => hasNoMushrooms(pizza.ingredients));
       // productsICanEat = hasNoNuts.filter(function(option) {
-      //   return option.ingridients.any(function(ingridient) {
-      //     return ingridient === "mushrooms";
+      //   return option.ingredients.any(function(ingredient) {
+      //     return ingredient === "mushrooms";
       //   });
       // });
       // var hasMushrooms = products.ingredients.filter(ingredient => ingredient.any(one => one === 'mushrooms'));
@@ -114,10 +114,30 @@ describe("About Applying What We Have Learnt", function() {
     //   });
     // }, {});
     // products.map()
+    // _.chain(products)
+    //  .map(function(pizza) {var ingredients = pizza.ingredients;
+    //                        ingredients.forEach(function(ingredient) {
+    //                         if(ingredientCount.ingredient) {
+    //                           ingredientCount.ingredient += 1;
+    //                         } else {
+    //                           ingredientCount.ingredient = 1;
+    //                         }
+    //                        });return pizza.ingredients;
+    //                       })
+    products.forEach(function(pizza) {
+      pizza.ingredients.forEach(function(ingredient) {
+        if(ingredientCount[ingredient]) {
+          ingredientCount[ingredient] += 1;
+        } else {
+          var topings = ingredient
+          ingredientCount[topings] = 1;
+      }
+    });
+    });
 
     /* chain() together map(), flatten() and reduce() */
 
-    expect(ingredientCount['mushrooms']).toBe(hehe);
+    expect(ingredientCount['mushrooms']).toBe(2);
   });
 
   /*********************************************************************************/
